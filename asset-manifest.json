@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "//Patrela/react_todo/static/js/main.1e760e63.js",
-    "index.html": "//Patrela/react_todo/index.html",
-    "main.1e760e63.js.map": "//Patrela/react_todo/static/js/main.1e760e63.js.map"
+    "main.js": "/Patrela/react_todo/static/js/main.1e760e63.js",
+    "index.html": "/Patrela/react_todo/index.html",
+    "main.1e760e63.js.map": "/Patrela/react_todo/static/js/main.1e760e63.js.map"
   },
   "entrypoints": [
     "static/js/main.1e760e63.js"

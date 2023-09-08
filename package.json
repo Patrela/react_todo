@@ -1,7 +1,7 @@
 {
 	"name": "todo_react_app",
 	"version": "0.1.0",
-	"homepage": "https://github.com//Patrela/react_todo",
+	"homepage": "https://github.com/Patrela/react_todo",
 	"private": true,
 	"dependencies": {
 		"@mantine/core": "^4.2.12",

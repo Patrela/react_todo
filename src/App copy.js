@@ -80,10 +80,12 @@ export default function App() {
 		clonedTasks[index].completed = !completed;
 		console.log("Mark :" + clonedTasks[index].title);
 		console.log(clonedTasks[index].completed);
-		//var completedTask = clonedTasks.filter( task => task.completed === true );
-		//var uncompletedTask = clonedTasks.filter( task => task.completed === false );
-		setTasks(clonedTasks);
-		saveTasks([...clonedTasks]);
+		var completedTask = clonedTasks.filter( task => task.completed === true );
+		var uncompletedTask = clonedTasks.filter( task => task.completed === false );
+		uncompletedTask.concat(completedTask);
+		uncompletedTask.map(task =>console.log(task));
+		setTasks(uncompletedTask);
+		saveTasks(...uncompletedTask);
 	}
 	function loadTasks() {
 		let loadedTasks = localStorage.getItem('tasks');
@@ -180,13 +182,13 @@ export default function App() {
 									return (
 										<Card withBorder key={index} mt={'sm'}>
 											<Group position={'apart'}>
-												<Text weight={'bold'} underline ={(task.completed === true)? true: false}> {task.title}</Text>
+												<Text weight={'bold'} underline ={(task.completed)? true: false}> {task.title}</Text>
 												<Group position={'apart'}>
 													<ActionIcon
 														onClick={() => {
 															markTask(index, task.completed);
 														}}
-														color={(task.completed === true)? 'green':'red'}
+														color={'red'}
 														variant={'transparent'}>
 														<Check />
 													</ActionIcon>
@@ -199,12 +201,11 @@ export default function App() {
 														<Trash />
 													</ActionIcon>
 												</Group>
-											</Group>											
+											</Group>
 											<Text color={'dimmed'} size={'md'} mt={'sm'}>
-												{ (task.completed === true)? 'COMPLETED'
-																									:	task.summary ? task.summary
-																															: 'No summary was provided for this task'
-												}
+												{task.summary
+													? task.summary
+													: 'No summary was provided for this task'}
 											</Text>
 										</Card>
 									);
